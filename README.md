@@ -1,10 +1,6 @@
-# Deprecation and archive notice
+# Fork
 
-This project is now deprecated. I decided that having so many great features in a single editor is not the right way to
-write software, and I wanted to do something different outside of Neovim. There are many other Neovim Lua plugin 
-alternatives out there.
-
-Thanks for having used `mind.nvim`!
+The original [mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecated, so I wanted to pick up this project.
 
 <h1 align="center">mind.nvim</h1>
 
@@ -118,9 +114,22 @@ Lua dependencies:
 This installation guide uses [packer.nvim](https://github.com/wbthomason/packer.nvim) but the procedure should be quite
 similar for other package managers.
 
+### [lazy.nvim](https://github.com/folke/lazy.nvim)
+```lua
+{
+  "selyss/mind.nvim",
+  branch = 'v2.2',
+  dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+    -- your configuration comes here
+  }
+}
+```
+
+### [packer.nvim](https://github.com/wbthomason/packer.nvim)
 ```lua
 use {
-  'phaazon/mind.nvim',
+  'selyss/mind.nvim',
   branch = 'v2.2',
   requires = { 'nvim-lua/plenary.nvim' },
   config = function()
