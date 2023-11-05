@@ -1,7 +1,7 @@
 -- Everything relating to the UI.
 local M = {}
 
-local mind_node = require("mind.node")
+local mind_node = require('mind.node')
 
 -- A per-tree render cache.
 --
@@ -15,19 +15,19 @@ M.render_cache = {}
 -- Get the highlight group to use for a node given its status.
 local function node_hl(node)
 	if node.type == mind_node.TreeType.ROOT then
-		return "MindNodeRoot"
+		return 'MindNodeRoot'
 	elseif node.type == mind_node.TreeType.LOCAL_ROOT then
-		return "MindNodeRoot"
+		return 'MindNodeRoot'
 	elseif node.children ~= nil then
-		return "MindNodeParent"
+		return 'MindNodeParent'
 	else
-		return "MindNodeLeaf"
+		return 'MindNodeLeaf'
 	end
 end
 
 -- Compute the text line to display for a given node
 local function node_to_line(node, opts)
-	local name = ""
+	local name = ''
 	local partial_hls = {}
 
 	local node_group = node_hl(node)
@@ -53,49 +53,49 @@ local function node_to_line(node, opts)
 	-- special case for the first highlight:
 	if node.type == nil then
 		if node.children ~= nil then
-			partial_hls[#partial_hls - #node.contents + 1].group = "MindNodeParent"
+			partial_hls[#partial_hls - #node.contents + 1].group = 'MindNodeParent'
 		elseif node.data == nil and node.url == nil then
-			partial_hls[#partial_hls - #node.contents + 1].group = "MindModifierEmpty"
+			partial_hls[#partial_hls - #node.contents + 1].group = 'MindModifierEmpty'
 		end
 	end
 
 	-- special marker for local roots
 	if node.type == mind_node.TreeType.LOCAL_ROOT then
-		local marker = " " .. opts.ui.local_marker
+		local marker = ' ' .. opts.ui.local_marker
 		name = name .. marker
 
 		partial_hls[#partial_hls + 1] = {
-			group = "MindLocalMarker",
+			group = 'MindLocalMarker',
 			width = #marker,
 		}
 	end
 
 	-- special marker for data / URL nodes
 	if node.data ~= nil then
-		local marker = " " .. opts.ui.data_marker
+		local marker = ' ' .. opts.ui.data_marker
 		name = name .. marker
 
 		partial_hls[#partial_hls + 1] = {
-			group = "MindDataMarker",
+			group = 'MindDataMarker',
 			width = #marker,
 		}
 	elseif node.url ~= nil then
-		local marker = " " .. opts.ui.url_marker
+		local marker = ' ' .. opts.ui.url_marker
 		name = name .. marker
 
 		partial_hls[#partial_hls + 1] = {
-			group = "MindURLMarker",
+			group = 'MindURLMarker',
 			width = #marker,
 		}
 	end
 
 	-- special marker for selection
 	if node.is_selected then
-		local marker = " " .. opts.ui.select_marker
+		local marker = ' ' .. opts.ui.select_marker
 		name = name .. marker
 
 		partial_hls[#partial_hls + 1] = {
-			group = "MindSelectMarker",
+			group = 'MindSelectMarker',
 			width = #marker,
 		}
 	end
@@ -114,12 +114,12 @@ local function render_node(node, indent, is_last, lines, hls, opts)
 			line = indent
 			indent = indent
 		else
-			line = indent .. opts.ui.node_indent_marker .. " "
-			indent = indent .. "  "
+			line = indent .. opts.ui.node_indent_marker .. ' '
+			indent = indent .. '  '
 		end
 	else
-		line = indent .. opts.ui.empty_indent_marker .. " "
-		indent = indent .. opts.ui.empty_indent_marker .. " "
+		line = indent .. opts.ui.empty_indent_marker .. ' '
+		indent = indent .. opts.ui.empty_indent_marker .. ' '
 	end
 
 	local name, partial_hls = node_to_line(node, opts)
@@ -127,7 +127,7 @@ local function render_node(node, indent, is_last, lines, hls, opts)
 	local hl_line = #lines
 
 	hls[#hls + 1] = {
-		group = "MindOpenMarker",
+		group = 'MindOpenMarker',
 		line = hl_line,
 		col_start = 0,
 		col_end = #line,
@@ -135,11 +135,11 @@ local function render_node(node, indent, is_last, lines, hls, opts)
 
 	if node.children ~= nil then
 		if node.is_expanded then
-			local mark = " "
+			local mark = ' '
 			local hl_col_end = hl_col_start + #mark
 
 			hls[#hls + 1] = {
-				group = "MindOpenMarker",
+				group = 'MindOpenMarker',
 				line = hl_line,
 				col_start = hl_col_start,
 				col_end = hl_col_end,
@@ -165,11 +165,11 @@ local function render_node(node, indent, is_last, lines, hls, opts)
 			end
 			render_node(node.children[#node.children], indent, true, lines, hls, opts)
 		else
-			local mark = " "
+			local mark = ' '
 			local hl_col_end = hl_col_start + #mark
 
 			hls[#hls + 1] = {
-				group = "MindClosedMarker",
+				group = 'MindClosedMarker',
 				line = hl_line,
 				col_start = hl_col_start,
 				col_end = hl_col_end,
@@ -204,7 +204,7 @@ end
 local function render_tree(tree, opts)
 	local lines = {}
 	local hls = {}
-	render_node(tree, "", true, lines, hls, opts)
+	render_node(tree, '', true, lines, hls, opts)
 	return lines, hls
 end
 
@@ -216,16 +216,16 @@ M.open_window = function(opts)
 		bufnr = M.render_cache.bufnr
 	else
 		bufnr = vim.api.nvim_create_buf(false, false)
-		vim.api.nvim_buf_set_option(bufnr, "filetype", "mind")
-		vim.api.nvim_buf_set_option(bufnr, "buftype", "nofile")
+		vim.api.nvim_buf_set_option(bufnr, 'filetype', 'mind')
+		vim.api.nvim_buf_set_option(bufnr, 'buftype', 'nofile')
 
 		-- window
-		vim.api.nvim_exec("vsp", false)
-		vim.api.nvim_exec("wincmd H", false)
+		vim.api.nvim_exec('vsp', false)
+		vim.api.nvim_exec('wincmd H', false)
 		vim.api.nvim_win_set_width(0, opts.ui.width)
 		vim.api.nvim_win_set_buf(0, bufnr)
-		vim.api.nvim_win_set_option(0, "nu", false)
-		vim.api.nvim_win_set_option(0, "rnu", false)
+		vim.api.nvim_win_set_option(0, 'nu', false)
+		vim.api.nvim_win_set_option(0, 'rnu', false)
 	end
 
 	return bufnr
@@ -235,7 +235,7 @@ end
 M.render = function(tree, bufnr, opts)
 	local lines, hls = render_tree(tree, opts)
 
-	vim.api.nvim_buf_set_option(bufnr, "modifiable", true)
+	vim.api.nvim_buf_set_option(bufnr, 'modifiable', true)
 
 	-- set the lines for the whole buffer, replacing everything
 	vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, lines)
@@ -245,7 +245,7 @@ M.render = function(tree, bufnr, opts)
 		vim.api.nvim_buf_add_highlight(bufnr, 0, hl.group, hl.line, hl.col_start, hl.col_end)
 	end
 
-	vim.api.nvim_buf_set_option(bufnr, "modifiable", false)
+	vim.api.nvim_buf_set_option(bufnr, 'modifiable', false)
 
 	M.render_cache = { tree_uid = tree.uid, bufnr = bufnr }
 end
@@ -279,8 +279,8 @@ end
 
 -- Run a command by asking for confirmation before. If the answer is 'y', run the command, otherwise abort.
 M.with_confirmation = function(prompt, f)
-	vim.ui.input({ prompt = prompt .. " (y/n) " }, function(input)
-		if input ~= nil and (input == "y" or input == "Y") then
+	vim.ui.input({ prompt = prompt .. ' (y/n) ' }, function(input)
+		if input ~= nil and (input == 'y' or input == 'Y') then
 			f()
 		end
 	end)
