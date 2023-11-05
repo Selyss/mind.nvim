@@ -161,8 +161,7 @@ the last one**. If you are not, then you are exposed to Neovim compatibility iss
 |-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `:MindOpenMain`                     | Open the main Mind tree.
 | `:MindOpenProject`                  | Open the project tree.
-| `:MindOpenSmartProject`             | Open the project tree, either local, global or prompt the user for which
-    kind of project tree to create.
+| `:MindOpenSmartProject`             | Open the project tree, either local, global or prompt the user for which kind of project tree to create.
 | `:MindReloadState`                  | Reload Mind state for global and local trees.
 | `:MindClose`                        | Close project or main mind tree if open. Resets ui cache.
 
