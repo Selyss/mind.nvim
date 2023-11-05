@@ -1,6 +1,6 @@
 # Fork
 
-The original [mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecated, so I wanted to pick up this project.
+The [original mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecated, so I wanted to pick up this project.
 
 <h1 align="center">mind.nvim</h1>
 
@@ -163,15 +163,55 @@ the last one**. If you are not, then you are exposed to Neovim compatibility iss
 | `:MindOpenProject`                  | Open the project tree.
 | `:MindOpenSmartProject`             | Open the project tree, either local, global or prompt the user for which kind of project tree to create.
 | `:MindReloadState`                  | Reload Mind state for global and local trees.
-| `:MindClose`                        | Close project or main mind tree if open. Resets ui cache.
+| `:MindClose`                        | Close project or main Mind tree if open. Resets ui cache.
 
-A wiki is planned, but for now, you can simply have a look at `:h mind-usage` and `:h mind-commands`.
+*A wiki is planned, but for now, you can simply have a look at `:h mind-usage` and `:h mind-commands`.*
 
 # Keybindings
 
 The user commands defined by Mind are mapped to no keybindings by default. However, once you have a tree open,
 buffer-local keybindings are automatically inserted. You can change them by setting they behavior you want in
 `opts.keymaps`. More information about that in `:h mind-config-keymaps`.
+
+### Normal Mode
+
+| Mappings       | Action                                               |
+|----------------|------------------------------------------------------|
+| `<cr>`         | open_data                                            |
+| `<s-cr>`       | open_data_index                                      |
+| `<tab>`        | toggle_node                                          |
+| `<s-tab>`      | toggle_node                                          |
+| `/`            | select_path                                          |
+| `$`            | change_icon_menu                                     |
+| `c`            | add_inside_end_index                                 |
+| `I`            | add_inside_start                                     |
+| `i`            | add_inside_end                                       |
+| `l`            | copy_node_link                                       |
+| `L`            | copy_node_link_index                                 |
+| `d`            | delete                                               |
+| `D`            | delete_file                                          |
+| `O`            | add_above                                            |
+| `o`            | add_below                                            |
+| `q`            | quit                                                 |
+| `r`            | rename                                               |
+| `R`            | change_icon                                          |
+| `u`            | make_url                                             |
+| `x`            | select                                               |
+
+### Selection Mode
+
+| Mappings       | Action                                               |
+|----------------|------------------------------------------------------|
+| `<cr>`         | open_data                                            |
+| `<s-tab>`      | toggle_node                                          |
+| `/`            | select_path                                          |
+| `I`            | move_inside_start                                    |
+| `i`            | move_inside_end                                      |
+| `O`            | move_above                                           |
+| `o`            | move_below                                           |
+| `q`            | quit                                                 |
+| `x`            | select                                               |
+
 
 [org-mode]: https://orgmode.org/
 [Notion]: https://www.notion.so/
