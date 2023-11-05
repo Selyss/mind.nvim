@@ -108,6 +108,7 @@ This plugin was written against Neovim 0.7.2, so you need to ensure you are runn
 Lua dependencies:
 
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim), which can be required with `'nvim-lua/plenary.nvim'`.
+- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons), used for icons
 
 ## Installation
 
@@ -116,7 +117,10 @@ Lua dependencies:
 {
   "Selyss/mind.nvim",
   branch = 'v2.2',
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { 
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- optional, used for icons
+  },
   opts = {
     -- your configuration comes here
   }
@@ -128,7 +132,10 @@ Lua dependencies:
 use {
   'Selyss/mind.nvim',
   branch = 'v2.2',
-  requires = { 'nvim-lua/plenary.nvim' },
+  requires = { 
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons", -- optional, used for icons
+  },
   config = function()
     require'mind'.setup()
   end
