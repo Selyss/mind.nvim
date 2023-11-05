@@ -111,13 +111,10 @@ Lua dependencies:
 
 ## Installation
 
-This installation guide uses [packer.nvim](https://github.com/wbthomason/packer.nvim) but the procedure should be quite
-similar for other package managers.
-
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
-  "selyss/mind.nvim",
+  "Selyss/mind.nvim",
   branch = 'v2.2',
   dependencies = { "nvim-lua/plenary.nvim" },
   opts = {
@@ -129,7 +126,7 @@ similar for other package managers.
 ### [packer.nvim](https://github.com/wbthomason/packer.nvim)
 ```lua
 use {
-  'selyss/mind.nvim',
+  'Selyss/mind.nvim',
   branch = 'v2.2',
   requires = { 'nvim-lua/plenary.nvim' },
   config = function()
@@ -159,6 +156,15 @@ Mind supports nightly releases of Neovim. However, keep in mind that if you are 
 the last one**. If you are not, then you are exposed to Neovim compatibility issues / breakage.
 
 # Usage
+
+| Commands                            | Description                                                                                                                                                 |
+|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `:MindOpenMain`                     | Open the main Mind tree.
+| `:MindOpenProject`                  | Open the project tree.
+| `:MindOpenSmartProject`             | Open the project tree, either local, global or prompt the user for which
+    kind of project tree to create.
+| `:MindReloadState`                  | Reload Mind state for global and local trees.
+| `:MindClose`                        | Close project or main mind tree if open. Resets ui cache.
 
 A wiki is planned, but for now, you can simply have a look at `:h mind-usage` and `:h mind-commands`.
 
