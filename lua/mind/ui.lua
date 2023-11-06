@@ -219,9 +219,19 @@ M.open_window = function(opts)
 		vim.api.nvim_set_option_value('filetype', 'mind', { buf = bufnr })
 		vim.api.nvim_set_option_value('buftype', 'nofile', { buf = bufnr })
 
-		-- window
 		vim.api.nvim_exec2('vsp', { output = false })
-		vim.api.nvim_exec2('wincmd H', { output = false })
+
+		local position = opts.ui.position
+		-- window
+		if position == 'right' then
+			vim.api.nvim_exec2('wincmd L', { output = false })
+		elseif position == 'left' then
+			vim.api.nvim_exec2('wincmd H', { output = false })
+		elseif position == 'top' then
+			vim.api.nvim_exec2('wincmd K', { output = false })
+		elseif position == 'bottom' then
+			vim.api.nvim_exec2('wincmd J', { output = false })
+		end
 		vim.api.nvim_win_set_width(0, opts.ui.width)
 		vim.api.nvim_win_set_buf(0, bufnr)
 		vim.api.nvim_set_option_value('nu', false, { win = 0 })
