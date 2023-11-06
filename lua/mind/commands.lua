@@ -148,10 +148,13 @@ M.open_data = function(tree, node, directory, save_tree, opts)
 
 	-- pick the first window in the list; if it’s empty, we open a new one
 	if winnr == nil then
-		vim.api.nvim_exec2('rightb vsp ' .. data, { false })
+		-- FIXME:
+		vim.api.nvim_exec2('rightb vsp ' .. data, { output = false })
+		-- vim.api.nvim_exec2('rightb vsp ' .. data, { output = false })
 	else
 		vim.api.nvim_set_current_win(winnr)
-		vim.api.nvim_exec2('e ' .. data, { false })
+		vim.api.nvim_exec2('e ' .. data, { output = false })
+		-- vim.api.nvim_exec2('e ' .. data, { output = false })
 	end
 
 	if opts.ui.close_on_file_open == true then

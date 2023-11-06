@@ -220,8 +220,8 @@ M.open_window = function(opts)
 		vim.api.nvim_set_option_value('buftype', 'nofile', { buf = bufnr })
 
 		-- window
-		vim.api.nvim_exec2('vsp', { false })
-		vim.api.nvim_exec2('wincmd H', { false })
+		vim.api.nvim_exec2('vsp', { output = false })
+		vim.api.nvim_exec2('wincmd H', { output = false })
 		vim.api.nvim_win_set_width(0, opts.ui.width)
 		vim.api.nvim_win_set_buf(0, bufnr)
 		vim.api.nvim_set_option_value('nu', false, { win = 0 })
