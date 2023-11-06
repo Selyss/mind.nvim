@@ -216,16 +216,16 @@ M.open_window = function(opts)
 		bufnr = M.render_cache.bufnr
 	else
 		bufnr = vim.api.nvim_create_buf(false, false)
-		vim.api.nvim_buf_set_option(bufnr, 'filetype', 'mind')
-		vim.api.nvim_buf_set_option(bufnr, 'buftype', 'nofile')
+		vim.api.nvim_set_option_value('filetype', 'mind', { buf = bufnr })
+		vim.api.nvim_set_option_value('buftype', 'nofile', { buf = bufnr })
 
 		-- window
-		vim.api.nvim_exec('vsp', false)
-		vim.api.nvim_exec('wincmd H', false)
+		vim.api.nvim_exec2('vsp', { false })
+		vim.api.nvim_exec2('wincmd H', { false })
 		vim.api.nvim_win_set_width(0, opts.ui.width)
 		vim.api.nvim_win_set_buf(0, bufnr)
-		vim.api.nvim_win_set_option(0, 'nu', false)
-		vim.api.nvim_win_set_option(0, 'rnu', false)
+		vim.api.nvim_set_option_value('nu', false, { win = 0 })
+		vim.api.nvim_set_option_value('rnu', false, { win = 0 })
 	end
 
 	return bufnr
@@ -235,7 +235,7 @@ end
 M.render = function(tree, bufnr, opts)
 	local lines, hls = render_tree(tree, opts)
 
-	vim.api.nvim_buf_set_option(bufnr, 'modifiable', true)
+	vim.api.nvim_set_option_value('modifiable', true, { buf = bufnr })
 
 	-- set the lines for the whole buffer, replacing everything
 	vim.api.nvim_buf_set_lines(bufnr, 0, -1, true, lines)
@@ -245,7 +245,7 @@ M.render = function(tree, bufnr, opts)
 		vim.api.nvim_buf_add_highlight(bufnr, 0, hl.group, hl.line, hl.col_start, hl.col_end)
 	end
 
-	vim.api.nvim_buf_set_option(bufnr, 'modifiable', false)
+	vim.api.nvim_set_option_value('modifiable', false, { buf = bufnr })
 
 	M.render_cache = { tree_uid = tree.uid, bufnr = bufnr }
 end
