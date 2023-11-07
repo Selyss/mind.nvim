@@ -9,10 +9,10 @@ The [original mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecat
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/issues/phaazon/mind.nvim?color=cyan&style=for-the-badge"/>
-  <img src="https://img.shields.io/github/issues-pr/phaazon/mind.nvim?color=green&style=for-the-badge"/>
-  <img src="https://img.shields.io/github/last-commit/phaazon/mind.nvim?style=for-the-badge"/>
-  <img src="https://img.shields.io/github/v/tag/phaazon/mind.nvim?color=pink&label=release&style=for-the-badge"/>
+  <img src="https://img.shields.io/github/issues/Selyss/mind.nvim?color=cyan&style=for-the-badge"/>
+  <img src="https://img.shields.io/github/issues-pr/Selyss/mind.nvim?color=green&style=for-the-badge"/>
+  <img src="https://img.shields.io/github/last-commit/Selyss/mind.nvim?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/v/tag/Selyss/mind.nvim?color=pink&label=release&style=for-the-badge"/>
 </p>
 
 <p align="center">
