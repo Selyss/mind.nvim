@@ -45,8 +45,8 @@ return {
 
 	-- UI options
 	ui = {
-		-- position to open window in
-		position = 'bottom',
+		-- split to open window in
+		position = 'left',
 
 		-- commands used to open URLs
 		url_open = url_open,
