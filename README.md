@@ -5,6 +5,7 @@ The [original mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecat
 ## Update Log
 
 - Added option to specify where popup should appear
+- Updated Nerd Font Icons that had been removed
 
 <h1 align="center">mind.nvim</h1>
 
