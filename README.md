@@ -2,6 +2,10 @@
 
 The [original mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecated, so I wanted to pick up this project.
 
+## Update Log
+
+- Added option to specify where popup should appear
+
 <h1 align="center">mind.nvim</h1>
 
 <p align="center">
