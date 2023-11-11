@@ -117,6 +117,9 @@ Lua dependencies:
 
 ## Installation
 
+*It is strongly discouraged to use `master` as that branch can introduce breaking changes at any time.*
+Refer to [versioning](https://github.com/Selyss/mind.nvim/edit/master/README.md#important-note-about-versioning) for more information
+
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
@@ -148,24 +151,6 @@ use {
 ```
 
 This will bring you a default experience. Feel free to customize later the `setup` invocation (`:h mind.setup`).
-
-### Important note about versioning
-
-This plugin implements [SemVer] via git branches and tags. Versions are prefixed with a `v`, and only patch versions
-are git tags. Major and minor versions are git branches. You are **very strongly advised** to use a major version
-dependency to be sure your config will not break when Mind gets updated.
-
-- Major versions always have the form `vM`, where `M` is the major version. — e.g. `v2`.
-- Minor versions always have the form `vM.N`, where `M` is the major version and `N` the minor. — e.g. `v2.0`.
-- Patch versions always have the form `vM.N.P`, where `M` is the major version, `N` the minor and `P` the patch. — e.g.
-  `v2.0.0`.
-
-**It is strongly discouraged to use `master` as that branch can introduce breaking changes at any time.**
-
-### Nightly users
-
-Mind supports nightly releases of Neovim. However, keep in mind that if you are on a nightly version, you must be **on
-the last one**. If you are not, then you are exposed to Neovim compatibility issues / breakage.
 
 # Configuration
 The following are the default options. Refer to the installation guide for the location of options.
@@ -345,6 +330,24 @@ The following are the default options. Refer to the installation guide for the l
 
 *A wiki is planned, but for now, you can simply have a look at `:h mind-usage` and `:h mind-commands`.*
 
+### Important note about versioning
+
+This plugin implements [SemVer] via git branches and tags. Versions are prefixed with a `v`, and only patch versions
+are git tags. Major and minor versions are git branches. You are **very strongly advised** to use a major version
+dependency to be sure your config will not break when Mind gets updated.
+
+- Major versions always have the form `vM`, where `M` is the major version. — e.g. `v2`.
+- Minor versions always have the form `vM.N`, where `M` is the major version and `N` the minor. — e.g. `v2.0`.
+- Patch versions always have the form `vM.N.P`, where `M` is the major version, `N` the minor and `P` the patch. — e.g.
+  `v2.0.0`.
+
+**It is strongly discouraged to use `master` as that branch can introduce breaking changes at any time.**
+
+### Nightly users
+
+Mind supports nightly releases of Neovim. However, keep in mind that if you are on a nightly version, you must be **on
+the last one**. If you are not, then you are exposed to Neovim compatibility issues / breakage.
+
 # Keybindings
 
 The user commands defined by Mind are mapped to no keybindings by default. However, once you have a tree open,
@@ -389,7 +392,6 @@ buffer-local keybindings are automatically inserted. You can change them by sett
 | `o`            | move_below                                           |
 | `q`            | quit                                                 |
 | `x`            | select                                               |
-
 
 [org-mode]: https://orgmode.org/
 [Notion]: https://www.notion.so/
