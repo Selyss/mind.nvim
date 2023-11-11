@@ -118,7 +118,7 @@ Lua dependencies:
 ## Installation
 
 *It is strongly discouraged to use `master` as that branch can introduce breaking changes at any time.*
-Refer to [versioning](https://github.com/Selyss/mind.nvim/edit/master/README.md#important-note-about-versioning) for more information
+Refer to [versioning](https://github.com/Selyss/mind.nvim/tree/master#important-note-about-versioning) for more information
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
