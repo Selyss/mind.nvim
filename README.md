@@ -4,8 +4,9 @@ The [original mind.nvim](https://github.com/phaazon/mind.nvim) has been deprecat
 
 ## Update Log
 
-- Added option to specify where popup should appear
+- Added option to specify where the popup should appear in a split
 - Updated Nerd Font Icons that had been removed
+- Removed deprecated code
 
 <h1 align="center">mind.nvim</h1>
 
